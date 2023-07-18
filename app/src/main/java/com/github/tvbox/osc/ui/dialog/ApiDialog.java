@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.github.tvbox.osc.R;
+import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.ui.adapter.ApiHistoryDialogAdapter;
@@ -76,7 +77,8 @@ public class ApiDialog extends BaseDialog {
         findViewById(R.id.apiHistory).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
+//                ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
+                ArrayList<String> history = ApiConfig.defApi;
                 if (history.isEmpty())
                     return;
                 String current = Hawk.get(HawkConfig.API_URL, "");
